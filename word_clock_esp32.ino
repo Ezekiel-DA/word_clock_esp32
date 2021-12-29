@@ -11,9 +11,9 @@
 
 PatternLightLEDStrip<21> wordLEDs(130);
 PatternLightPWMPort topLeftLED(19);
-PatternLightPWMPort bottomRightLED(13);
-PatternLightPWMPort bottomLeftLED(14);
-PatternLightPWMPort topRightLED(15);
+PatternLightPWMPort bottomRightLED(18);
+PatternLightPWMPort bottomLeftLED(17);
+PatternLightPWMPort topRightLED(16);
 ILight *lights[] = {&wordLEDs, &topLeftLED, &bottomRightLED, &bottomLeftLED, &topRightLED};
 extern const byte NUM_LIGHTOBJECTS = sizeof(lights) / sizeof(void *);
 
@@ -71,6 +71,8 @@ void setup() {
   {
     lights[i]->setup();
   }
+
+  //wordLEDs.setMaxBrightness(80);
 
   FastLED.setMaxRefreshRate(60); // 60 FPS cap
   FastLED.clear();
